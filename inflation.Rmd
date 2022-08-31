@@ -27,10 +27,6 @@ The **dataset** we use stems from the [Bank of England Research datasets](https:
 
 > This dataset contains the individual responses to our Inflation Attitudes Survey, a quarterly survey of people’s feelings about inflation and other economic variables like the interest rate. 
 
-```{r}
-with(mtcars, plot(hp, mpg))
-```
-
 ```{r load-inflation}
 # code chunks can come from other scripts, this one is loaded from:
 # `R/prepare_inflation.R`
@@ -54,5 +50,9 @@ inflation %>%
   ungroup() %>% 
   ggplot() +
   geom_line(aes(date, value, color = name)) +
+  theme_minimal() +
+  ylab("subjective inflation in %-points") +
+  labs(color = "") +
+  theme(legend.position = c(.1, .9)) +
   NULL
 ```
